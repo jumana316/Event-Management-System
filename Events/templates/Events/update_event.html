@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Event</title>
+</head>
+<body>
+    <h1>Update Event</h1>
+    <form method="post" action=".">
+        {% csrf_token %}
+          <div class = "form-group">
+            Name:<br>
+            {{ form.name }}
+          </div>
+          <br>
+
+          <div class = "form-group" > 
+            Time:<br>
+            <input type="time" name="time" min="6:00" max="18:00" class="form-control"  style="max-width: 300px;" placeholder="Time" required="" id="id_time">
+          </div>
+          <br>
+
+          <div class = "form-group">
+            Date:<br>
+            <input type="date" name="date" class="form-control" style="max-width: 300px;" placeholder="Time" required="" id="id_date">
+          </div>
+          <br>
+
+          <div class = "form-group">
+            Duration:<br>
+            {{ form.duration }}
+          </div>
+          <br>
+
+          <div class = "form-group">
+            Description:<br>
+            <textarea id="description" name="description"  placeholder="Description"  rows="4" cols="50"></textarea>
+          </div>
+          <br>
+
+          <div class = "form-group">
+            Coordinator:<br>
+            {{ form.coordinator }}
+          </div>
+          <br>
+
+          <div class = "form-group">
+            Max_Participants:<br>
+            {{ form.max_participants }}
+          </div>
+          <br>
+
+          <div class="form-group">
+           <input type="reset" value="Reset" name="submit">
+           <input type="submit"  value="Update" name="submit">
+          </div>
+    </form>
+</body>
+</html>
+
+
+
+
+
