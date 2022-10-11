@@ -1,12 +1,14 @@
+
 {% load static %}
 <body>
     <header id="home">
       <nav class="navbar">
             <div class="menu">
       </div>
-      <h1>Home</h1>
+        <h1>Home</h1>
       <ul>
-        <li><a href="{% url 'Events:event-list'%}">Events</a></li>
+        <link href="{% static 'css/navbar.css/' %}" rel="stylesheet" />
+        <li><a href="{% url 'Events:event-list'%}" >Events</a></li>
         <li><a href="{% url 'Events:create-event'%}">Add Event</a></li>
         <li><a href="#">New Events</a></li>
         <li><a href="{% url 'Events:book-ticket' %}">Ticket Booking</a></li>

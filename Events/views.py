@@ -63,6 +63,14 @@ def event_detail(request, pk):
     }
     return render(request, 'Events/event_detail.html', context)
 
+
+def about_page(request):
+    return render(request,'pages/about_page.html')
+
+    
+def contact_page(request):
+    return render(request, 'pages/contact_page.html')
+
    
 
 

@@ -17,10 +17,8 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path
-from EMS.settings import STATIC_ROOT, STATIC_URL
-
-from Events.views import home_page, landing_page, login_page 
+from django.urls import include, path  
+from Events.views import about_page, contact_page, home_page, landing_page, login_page
 
 
 urlpatterns = [
@@ -28,7 +26,10 @@ urlpatterns = [
     path('home/', home_page, name='home'),
     path('', landing_page),
     path('login/', login_page),
-    path('Events/', include('Events.urls', namespace='Events'))
+    path('Events/', include('Events.urls', namespace='Events')),
+    path('about/', about_page, name='about'),
+    path('contact/', contact_page, name='contact'),
+
 ]
 
 if settings.DEBUG:
