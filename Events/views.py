@@ -1,5 +1,6 @@
+
 from .models import Event
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 
 from Events.forms import EventModelForm, TicketModelForm
 
@@ -56,6 +57,19 @@ def update_event(request):
     }
     return render(request, 'Events/update_event.html', context)
 
+def event_delete(request):
+    form = EventModelForm()
+    if request.method =="POST":
+        form = EventModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("Events:event-list")
+    context ={
+        "form": form
+    }
+    return render(request, 'Events/event_delete.html', context)
+   
+
 def event_detail(request, pk):
     event = Event.objects.get(id=pk)
     context = {
@@ -71,7 +85,7 @@ def about_page(request):
 def contact_page(request):
     return render(request, 'pages/contact_page.html')
 
-   
+
 
 
 

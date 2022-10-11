@@ -6,19 +6,19 @@
             <div class="menu">
       </div>
         <h1>Home</h1>
-      <ul>
+      <ul class="nav-links">
         <link href="{% static 'css/navbar.css/' %}" rel="stylesheet" />
-        <li><a href="{% url 'Events:event-list'%}" >Events</a></li>
-        <li><a href="{% url 'Events:create-event'%}">Add Event</a></li>
-        <li><a href="#">New Events</a></li>
-        <li><a href="{% url 'Events:book-ticket' %}">Ticket Booking</a></li>
+        <li><a href="{% url 'Events:event-list'%}" >Events</a></li><br>
+        <li><a href="{% url 'Events:create-event'%}">Add Event</a></li><br>
+        <li><a href="#">New Events</a></li><br>
+        <li><a href="{% url 'Events:book-ticket' %}">Ticket Booking</a></li><br>
       </ul>
     </div>
   </nav>
   <div class="img"></div>
   <div class="center">
     <div class="btns">
-      <button>Learn More</button>
+      <button onclick="">Learn More</button>
     </div>
   </div>
     </header>
