@@ -1,11 +1,20 @@
+{% extends "base.html" %}
 {% load static %}
-<body>
+{% block content %}
     <header id="home">
       <nav class="navbar">
             <div class="menu">
       </div>
         <h1>Home</h1>
-        <link href="{% static 'css/navbar.css/' %}" rel="stylesheet" />
+        <style>
+          h1{
+            color: darkcyan;
+            text-align: center;
+            font-size: xx-large;
+            font-family: 'Times New Roman', Times, serif;
+          }
+        </style>
+        <br>
         <li><a href="{% url 'Events:event-list'%}" >Events</a></li><br>
         <li><a href="{% url 'Events:create-event'%}">Add Event</a></li><br>
         <li><a href="#">New Events</a></li><br>
@@ -17,11 +26,23 @@
   <div class="center">
     <div class="btns">
       <button onclick="">Learn More</button>
+      <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            background-color: darkslategray;
+            color: bisque;
+            text-align: center;
+        }
+      </style>
     </div>
   </div>
     </header>
-</body>
-</html>
+{% endblock content %}
+
+
 
 
 <!-- <!DOCTYPE html>

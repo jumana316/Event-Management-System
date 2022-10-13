@@ -1,13 +1,33 @@
-
+{% extends "base.html" %}
 {% block content %}
     <title>Events</title>
-    <h2>Details of {{ Event.name }}</h2>
+    <u><h2>Details of {{ Event.name }}</h2></u>
+    <style>
+        h2{
+            color: rgb(78, 6, 69);
+            font-weight: bolder;
+            font-size: large;
+            font-style: oblique;
+        }
+    </style>
     <h4><p>Event time: {{ Event.time}}</p></h4>
     <h4><p>Event duration: {{ Event.duration}}</p></h4>
     <h4><p>Event description: {{ Event.description}}</p></h4>
     <h4><p>Event coordinator: {{ Event.coordinator}}</p></h4>
     <h4><p>Event max_participants: {{ Event.max_participants}}</p></h4><br>
+    
     <a href="{% url 'Events:event-update' %}">Update</a>
+    <br><button onclick="history.back()">Back</button>
+    <style>
+        button{
+        background-color: rgb(43, 0, 0);
+        color: rgb(239, 241, 241);
+        padding-left: .5em;
+        padding-top: .5em;
+        padding-right: .5em;
+        padding-bottom: .5em;
+       }
+    </style>
 {% endblock content %}
 
 

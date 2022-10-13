@@ -1,11 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
     <title>Events</title>
-    <h3>Event List</h3>
+    <u><h3>Event List</h3></u>
+    <style>
+      h3{
+        color: black;
+        font-weight: bolder;
+        font-size: x-large;
+        font-style: italic;
+        font-family: 'Times New Roman', Times, serif;
+      }
+    </style>
     {% for Event in Events %}
     <div class="Event">
       <a href="/Events/{{ Event.pk }}/event_detail">{{ Event.name }}</a>
     </div>
     {% endfor %}
+    <br><button onclick="history.back()">Back</button>
+    <style>
+      button{
+        background-color: rgb(43, 0, 0);
+        color: rgb(239, 241, 241);
+        padding-left: .5em;
+        padding-top: .5em;
+        padding-right: .5em;
+        padding-bottom: .5em;
+      }
+    </style>
+
 {% endblock content %}
 
