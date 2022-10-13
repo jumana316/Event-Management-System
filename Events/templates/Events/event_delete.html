@@ -1,29 +1,22 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <title>Delete Event</title>
-</head>
-{% block content %}
-  
-<body>
-    <h1>Delete Event</h1>
-    
-    <hr /> 
-    <form method="post" action=".">
-        {% csrf_token %}
-          <div class = "form-group">
-            Name:<br>
-            {{ form.name }}
-          </div>
-          <br>
+{% extends 'base.html' %}
 
+{% block content %} 
+    <a href="{% url 'Events:event-list' %}">Go back to Events</a>
+    <hr />
+    <h4>Are You Sure You Want to Delete This Lead?</h4>  
+    <style>
+      h4{
+        text-align: left
+      }
+    </style>
+    <form method="post" action=".">
+        {% csrf_token %}             
           <div class="form-group">
-           <input type="submit"  value="Delete" name="submit">
+            <input class="btn btn-primary" type="submit" value="Submit">
           </div>
     </form>
-</body>
 {% endblock content %}
+
 
 
 

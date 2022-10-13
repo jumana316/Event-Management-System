@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Management System</title>
-    <link href="{% static 'css/navbar.css/' %}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- <link href="{% static 'css/navbar.css/' %}" rel="stylesheet" />
     <link href="{% static 'css/freelancer.min.css' %}" rel="stylesheet">
     <style>
         .Event {          
@@ -18,12 +19,15 @@
            background-color: rgba(209, 242, 245, 0.856);
            width: 100%;
         }
-    </style>
+    </style> -->
 </head>
 <body>
-    {% include "navbar.html" %}
-    {% block content %}
-    {% endblock content %}
+    <div class="max-w-7xl mx-auto">
+        {% include "navbar.html" %}
+        {% block content %}
+        {% endblock content %}
+    </div>
+    {% include "scripts.html" %}
 </body>
 </html>
 
