@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Booking</title>
+    <link rel="stylesheet" href="{% static 'css/admin_event.css' %}">
+</head>
+<body class="bg-primary">
+    <div class="container box bg-success">
+    <a href="/Events/create_event"><button style="float:top-left; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">Add Event</button></a>
+    <h1 style="color: rgb(0, 0, 0);">Event Details<h1></h1><br>
+
+    <span style="font-size:16px;"><a href="/Events/eventlist"></a></span>
+
+  <table>
+    <tr class="bg-primary" style="color: rgb(0, 0, 0);">
+      <td>No</td>&nbsp;
+      <td>Event name</td>
+      <td>Date</td>
+      <td>Time</td>
+      <td>Duration</td>
+      <td>Description</td>
+      <td>Coordinator</td>
+      <td>Max_Participants</td>
+      <td>Update</td>
+      <td>Delete</td>
+    </tr>
+
+    {% for Event in Events %}
+    <tr>
+      <td><a href="/Events/event_detail">
+      </a></td>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ Event.name}}</td>
+      <td>{{ Event.date }}</td>
+      <td>{{ Event.time }}</td>
+      <td>{{ Event.duration }}</td>
+      <td>{{ Event.description }}</td>
+      <td>{{ Event.coordinator }}</td>
+      <td>{{ Event.max_participants }}</td>
+      <td><a href="/Events/{{ Event.pk }}/update_event">Update</a></td>
+      <td><a href="/Events/{{ Event.pk }}/delete">Delete</a></td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="8" align="center">No Events</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <div class="footer">
+    <a href="{% url 'home' %}"><button style="color: black; background-color:aliceblue;">Back</button></a>
+  </div>
+</div>
+  
+</body>
+</html>

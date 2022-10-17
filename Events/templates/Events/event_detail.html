@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
     <title>Events</title>
     <u><h2>Details of {{ Event.name }}</h2></u>
@@ -11,12 +12,25 @@
         }
     </style>
     <h4><p>Event time: {{ Event.time}}</p></h4>
+    <h4><p>Event date: {{ Event.date}}</p></h4>
     <h4><p>Event duration: {{ Event.duration}}</p></h4>
     <h4><p>Event description: {{ Event.description}}</p></h4>
     <h4><p>Event coordinator: {{ Event.coordinator}}</p></h4>
     <h4><p>Event max_participants: {{ Event.max_participants}}</p></h4><br>
-    
-    <a href="{% url 'Events:event-update' %}">Update</a>
+    <style>
+        body{
+        background-color: white;
+        }
+        h4{
+            color: rgb(0, 0, 0);
+            font-size: 110%;
+            font-weight: lighter;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+
+<a href="/Events/{{ Event.pk }}/update_event">Update {{ Event.name }}</a><br>
+<a href="/Events/{{ Event.pk }}/delete">Delete {{ Event.name }}</a1>
     <br><button onclick="history.back()">Back</button>
     <style>
         button{

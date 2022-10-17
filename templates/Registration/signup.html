@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <center><b><h1 style="background-color: rgb(185, 145, 95);">SignUp</h1></b>
+    <link href="{% static 'css/login.css' %}" rel="stylesheet" />  
+
+        <style>
+            body{
+                background-color: whitesmoke;
+            }
+            h1{
+                font-size: larger;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                background-repeat: no-repeat;
+                background: fixed;
+                color: black;
+                
+            }
+            h6{
+                color: rgb(0, 0, 0);
+            }
+        </style>
+    <form method="post" action=".">
+         {% csrf_token %}
+        <div class="form-group">
+            <b>Name:<br></b>
+            {{ form.name }}
+        </div>
+
+        <div class="form-group">
+        <b>Mail Id:<br></b>
+            {{ form.email }}
+        </div>
+
+        <div class="form-group">
+        <b><label for="gender">Gender:<br></label></b>
+            <select name="gender" id="gender">
+              <option value="none">None</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+        <b>Password:<br></b>
+            {{ form.password }}
+        </div>
+
+        <div class="form-group">
+        <a href="{% url 'login'%}"> SignUp</a>
+
+         <br><p>Already Have an Account?<br>
+            Click Here </p>  
+    <a href="{% url 'login'%}"> Login</a>
+    </center>
+
+{% endblock content %}
+
+

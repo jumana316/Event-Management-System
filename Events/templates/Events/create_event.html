@@ -2,54 +2,77 @@
 {% block content %}
 <body>
     <title>Create New Event</title>
-    <h1>Add Event</h1>
+    <u><h1>Add Event</h1></b></u>
+    <style>
+      body{
+        background-color: white;
+      }
+        h1  {
+        color: rgb(23, 3, 109);
+        font-weight: bolder;
+        font-size: x-large;
+        font-style: italic;
+        font-family: 'Times New Roman', Times, serif;
+      }
+    </style>
     <form method="post" action=".">
         {% csrf_token %}
           <div class = "form-group">
-            Name:<br>
+          <b>Name:<br></b>
             {{ form.name }}
           </div>
           <br>
 
           <div class = "form-group" > 
-            Time:<br>
+          <b>Time:<br>
             <input type="time" name="time" min="6:00" max="18:00" class="form-control"  style="max-width: 300px;" placeholder="Time" required="" id="id_time">
           </div>
           <br>
 
           <div class = "form-group">
-            Date:<br>
+          <b>Date:<br></b>
             <input type="date" name="date" class="form-control" style="max-width: 300px;" placeholder="Time" required="" id="id_date">
           </div>
           <br>
 
           <div class = "form-group">
-            Duration:<br>
+          <b>Duration:<br></b>
             {{ form.duration }}
           </div>
           <br>
 
           <div class = "form-group">
-            Description:<br>
+          <b>Description:<br></b>
             <textarea id="description" name="description"  placeholder="Description"  rows="4" cols="50"></textarea>
           </div>
           <br>
 
           <div class = "form-group">
-            Coordinator:<br>
+            <b>Coordinator:<br></b>
             {{ form.coordinator }}
           </div>
           <br>
 
           <div class = "form-group">
-            Max_Participants:<br>
+            <b>Max_Participants:<br></b>
             {{ form.max_participants }}
           </div>
           <br>
 
           <div class="form-group">
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">Save</button> &nbsp; 
+            <button onclick="history.back()">Back</button>
           </div>
+          <style>
+            button{
+              background-color: rgb(43, 0, 0);
+              color: rgb(239, 241, 241);
+              padding-left: .5em;
+              padding-top: .5em;
+              padding-right: .5em;
+              padding-bottom: .5em;
+            }
+          </style>
     </form>
 </body>
 {% endblock content %}

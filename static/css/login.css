@@ -108,14 +108,14 @@ body{
     width: 130px;
     background-color: #fff;
     outline: none;
-    border:1.5px solid #2f9cf1;
+    border:1.5px solid #000000;
     border-radius: 64px;
     font-size: 18px;
     color:#2f9cf1;
   }
   
   input[type=submit]:hover{
-    background-color: #2f9cf1;
+    background-color: #b7c9d6;
     color:white;
   }
   

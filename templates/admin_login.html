@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN</title>
+  <link rel="stylesheet" href="{% static 'css/login.css'%}">
+  <style>
+    body{
+        background-color: aliceblue;
+    }
+    .loginBox{
+      margin:80 0 0 0;
+      display:block;
+      background-color: darksalmon;
+    }
+    </style>
+</head>
+<body>
+<div class="container-fluid header text-center">
+   Event Management | Administration
+</div>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 loginBox">
+      <b>Login</b><br>
+      <span style="font-size:18px;">{{ status }}</span>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="inputBox" style="font-size:18px;">
+            <form action="" method="post">
+              {% csrf_token %}
+              Name :<br>
+              <input type="text" name="name" autocomplete="off" required>
+
+              <br>Email :<br>
+              <input type="email" name="email" minlength="8" autocomplete="off" required>
+
+              <br>Password :<br>
+              <input type="password" name="password" minlength="8" autocomplete="off" required>
+              <input type="submit" value="Login" name="login" style="margin:0 25% 0 25%;">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

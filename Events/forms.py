@@ -1,7 +1,7 @@
-from dataclasses import fields
+
 from django import forms
-from django.forms import DateInput, NumberInput, Select, TextInput, TimeInput
-from .models import Event, Book_Ticket
+from django.forms import DateInput, EmailInput, NumberInput, PasswordInput, Select, TextInput, TimeInput
+from .models import Admin, Event, Book_Ticket, User
 
 class EventModelForm(forms.ModelForm):
     class Meta:
@@ -27,4 +27,27 @@ class TicketModelForm(forms.ModelForm):
             'event':Select(attrs={'class': "form-control",'style': 'max-width: 300px;','placeholder': 'Event'}),
             'phone':NumberInput(attrs={'class': "form-control",'style': 'max-width: 300px;','placeholder': 'Number'})
         }
-        
+
+class UserCreationForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['name','email','gender','password']
+        widgets = {
+            'name':TextInput(attrs={'class': "form-control",'style': 'max-width: 300px;','placeholder': 'Name'}),
+            'email':EmailInput(attrs={'class': "form-control",'style': 'max-width: 300px;','placeholder': 'Mail'}),
+            'gender':Select(attrs={'class': "form-control",'style': 'max-width: 300px;','placeholder': 'Gender'}),
+            'password':PasswordInput(attrs={'class': "form-control",'style': 'max-width: 300px;','placeholder': 'Enter Password'}),
+        }
+
+class AdminCreationForm(forms.ModelForm):
+    class Meta:
+        model:Admin
+        fields = ['name','email','password']
+        widgets = {
+            'name':TextInput(attrs={'class': "form-control",'style': 'max-width: 300px;','placeholder': 'Name'}),
+            'email':EmailInput(attrs={'class': "form-control",'style': 'max-width: 300px;','placeholder': 'Mail'}),
+            'password':PasswordInput(attrs={'class': "form-control",'style': 'max-width: 300px;','placeholder': 'Enter Password'})
+
+        }
+
+

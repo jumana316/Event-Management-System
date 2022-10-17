@@ -8,7 +8,7 @@
         <h2>Home</h2>
         <style>
           body{
-            background-color: rgb(237, 237, 238);
+            background-color: rgb(255, 255, 255);
           }
           h1{
             color: rgb(0, 0, 0);
@@ -40,47 +40,18 @@
         </style>
         <br>
         <li><a href="{% url 'Events:event-list'%}" >Events</a></li><br>
-        <li><a href="{% url 'Events:create-event'%}">Add Event</a></li><br>
-        <li><a href="#">New Events</a></li><br>
-        <li><a href="{% url 'Events:book-ticket' %}">Ticket Booking</a></li><br>
+        <li><a href="{% url 'admin_booking'%}" >Events</a></li><br>
+        <!-- <li><a href="{% url 'Events:book-ticket' %}">Ticket Booking</a></li><br> -->
       </ul>
     </div>
   </nav>
   <div class="img"></div>
   <div class="center">
     <div class="btns">
-      <button onclick="">Learn More</button>
-      <style>
-        .center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 150px;
-            background-color: darkslategray;
-            color: bisque;
-            text-align: center;
-        }
-      </style>
     </div>
   </div>
     </header>
 {% endblock content %}
 
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Management System</title>
-</head>
-<body>
-    <a href="{% url 'Events:event-list'%}">Event List</a>
-    <h2>Create Event</h2>
-</body>
-</html> -->
 
 

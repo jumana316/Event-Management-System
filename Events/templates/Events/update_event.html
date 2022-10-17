@@ -1,54 +1,75 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-    <h1>Update Event</h1>
+<u><h1 class="bg-primary" style="color: rgb(24, 3, 3);">Manage Event</h1></u><br>
+<link href="{% static 'css/style.css' %}" rel="stylesheet" /> 
+<button onclick="history.back()" style="display: .15em; color: beige; border-radius: 2px;">Back</button>
+    <style>
+      body{
+        background-color: white;
+      }
+      h1{
+        font-weight: bolder;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: larger;
+      }
+    </style>
     <form method="post" action=".">
         {% csrf_token %}
-          <div class = "form-group">
-            Name:<br>
-            {{ form.name }}   
-          </div>
-          <br>
-
+          <div class="form-group">
+           <b>Name :<br></b>
+            <input type="text" name="name" autocomplete="off" value="{{ Event.name }}" required><br><hr>
+        </div>
           <div class = "form-group" > 
-            Time:<br>
+          <b>Time :<br></b>
             <input type="time" name="time" min="6:00" max="18:00" class="form-control"  style="max-width: 300px;" placeholder="Time" required="" id="id_time">
           </div>
-          <br>
+          <hr><br>
 
           <div class = "form-group">
-            Date:<br>
+          <b>Date :<br></b>
             <input type="date" name="date" class="form-control" style="max-width: 300px;" placeholder="Time" required="" id="id_date">
           </div>
-          <br>
+          <hr><br>
 
           <div class = "form-group">
-            Duration:<br>
+          <b>Duration :<br></b>
             {{ form.duration }}
           </div>
-          <br>
+          <hr><br>
 
           <div class = "form-group">
-            Description:<br>
-            <textarea id="description" name="description"  placeholder="Description"  rows="4" cols="50"></textarea>
+          <b>Description :<br></b>
+            <textarea id="description" name="description" value="{{ Event.description }}"  placeholder="Description"  rows="4" cols="50"></textarea>
           </div>
-          <br>
+          <hr><br>
 
           <div class = "form-group">
-            Coordinator:<br>
-            {{ form.coordinator }}
+          <b>Coordinator :<br></b>
+            <input type="text" name="coordinator" autocomplete="off" value="{{ Event.coordinator }}" required><br>
           </div>
-          <br>
+          <hr><br>
           
           <div class = "form-group">
-            Max_Participants:<br>
+          <b>Max_Participants :<br></b>
             {{ form.max_participants }}
           </div>
-          <br>
+          <hr>
 
-          <div class="form-group">
-           <input type="reset" value="Reset" name="submit">
-           <input type="submit"  value="Update" name="submit">
-           <input type="submit"  value="Delete" name="submit">
+          <div class="form-group"><br>
+           <button type="submit" class="btn btn-primary">Reset</button>
+           <button type="submit" class="btn btn-primary">Submit</button>
+           <button type="submit" class="btn btn-primary">Delete</button> 
+          <style>
+            button{
+            background-color: rgb(43, 0, 0);
+            color: rgb(239, 241, 241);
+            padding-left: .5em;
+            padding-top: .5em;
+            padding-right: .5em;
+            padding-bottom: .5em;
+           }
+          </style>  
           </div>
     </form>
 {% endblock content %}
