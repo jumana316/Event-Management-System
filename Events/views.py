@@ -1,6 +1,6 @@
 
 from .models import Event
-from django.shortcuts import render, redirect
+from django.shortcuts import  HttpResponseRedirect, render, redirect
 
 from Events.forms import EventModelForm, TicketModelForm, UserCreationForm, Book_Ticket
 
@@ -91,30 +91,39 @@ def create_event(request):
 
 
 def update_event(request, pk):
-      event = Event.objects.get(id=pk)
-      event.time = event.time.strftime('%H:%M:%S')
-      event.date = event.date.strftime('%Y-%m-%d')
-      form = EventModelForm(instance=Event)
-      if request.method =="POST":
-        form = EventModelForm(request.POST, instance=Event)
-      context = {
-        "form": form,
-        "Events": event       
-    } 
-      return render(request, "Events/update_event.html", context) 
+    context ={}
+    event = Event.objects.get(id=pk)
+    form = EventModelForm(request.POST or None, instance = event)
+
+    # save the data from the form and
+    # redirect to detail_view
+  
+    if form.is_valid():
+        form.save()
+        return redirect("Events:event-list"+pk)
+    context["form"] = form
+    return render(request, "Events/update_event.html", context)
+
+    #   form = EventModelForm(instance=Event)
+    #   if request.method =="POST":
+    #     form = EventModelForm(request.POST, instance=Event)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect("Events:event-list"+pk) 
+    #   context = {
+    #     "form": form,
+    #     "Events": event       
+    # } 
+    #   return render(request, "Events/update_event.html", context) 
 
 
 def event_delete(request,pk):
+    context ={}
     event = Event.objects.get(id=pk)
-    form = EventModelForm(instance=Event)
     if request.method =="POST":
-        form = EventModelForm(request.POST, instance=Event)
-        return redirect("Events:event-list") 
-    context ={
-        "form": form,
-        "Events": event
-    }
-    return render(request, 'Events/event_delete.html', context)
+            event.delete()
+            return redirect("Events:event-list")
+    return render(request, 'Events/event_delete.html',context)
    
 
 # Admin Page
