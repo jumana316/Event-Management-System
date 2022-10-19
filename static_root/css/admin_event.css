@@ -1,4 +1,4 @@
-body{
+/* body{
     background-color: #e6e6e6;
   }
   
@@ -28,7 +28,7 @@ body{
     background-color: rgb(15, 9, 9);
     outline: none;
     border:1.5px solid #2f9cf1;
-    /* padding: 10 20 10 20; */
+ 
     border-radius: 64px;
     font-size: 18px;
     color:#2f9cf1;
@@ -88,21 +88,5 @@ body{
     height: 50px;
     text-align: center;
   }
-  /* .footer button{
-    width: 130;
-    background-color: #fff;
-    outline: none;
-    border:1.5px solid #2f9cf1;
-    padding: 10 20 10 20;
-    border-radius: 64px;
-    font-size: 18;
-    color:#2f9cf1;
-  }
-  .footer button:hover{
-    background-color: #2f9cf1;
-    color:white;
-  }
-  .footer a{
-    color:black;
-  } */
-  
+
+   */
