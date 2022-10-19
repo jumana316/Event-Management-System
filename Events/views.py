@@ -1,8 +1,8 @@
 
-from .models import Event
+from .models import Admin, Event
 from django.shortcuts import  HttpResponseRedirect, render, redirect
 
-from Events.forms import EventModelForm, TicketModelForm, UserCreationForm, Book_Ticket
+from Events.forms import EventModelForm, TicketModelForm, UserCreationForm, Book_Ticket, AdminCreationForm
 
 
 #User Landing Page
@@ -100,7 +100,7 @@ def update_event(request, pk):
   
     if form.is_valid():
         form.save()
-        return redirect("Events:event-list"+pk)
+        return redirect("Events:event-detail"+pk)
     context["form"] = form
     return render(request, "Events/update_event.html", context)
 
@@ -120,27 +120,39 @@ def update_event(request, pk):
 def event_delete(request,pk):
     context ={}
     event = Event.objects.get(id=pk)
+    form = EventModelForm()
     if request.method =="POST":
             event.delete()
-            return redirect("Events:event-list")
+    if form.is_valid():
+        form.save()
+        return redirect("Events:event-list")
+    context["form"] = form   
     return render(request, 'Events/event_delete.html',context)
    
 
 # Admin Page
 
 def admin_login(request):
-    return render(request,'admin_login.html')
+    if request.method =="POST":
+        form = AdminCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("admin_home.html")
+    context ={}
+    return render(request,'admin_login.html', context)
 
 #Admin View Bookings
 
 def admin_booking(request):
-    if request.session:
+    if request.session =="POST":
         booking = Book_Ticket.objects.all()
         data = {'booking':booking}
         return render(request,'admin_booking.html',context=data)
+       
     else:
         data = {'status':'You need to login first'}
         return render(request,'admin_login.html',context=data)
+    
 
 def admin_home(request):
     return render(request,'admin_home.html')
