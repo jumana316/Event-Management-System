@@ -1,43 +1,15 @@
-{% extends "base.html" %}
 {% load static %}
 {% block content %}
     <header id="home">
       <nav class="navbar">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'assets/imgs/logo.svg' %}" alt="">
+      </a>
             <div class="menu">
       </div>
         <h2>Home</h2>
-        <style>
-          body{
-            background-color: rgb(237, 237, 238);
-          }
-          h1{
-            color: rgb(0, 0, 0);
-            text-align:center;
-            display: block;
-            font-size: 2em;
-            font-style: oblique;
-            font-family: 'Times New Roman', Times, serif;
-            margin-top: 0.83em;
-            margin-bottom: 0.83em;
-            margin-left: 0;
-            margin-right: 0;
-            font-weight: bold;  
-          }
-
-          h2{
-                color: rgb(6, 85, 45);
-                text-align:center;
-                display: block;
-                font-size: 2em;
-                font-style: oblique;
-                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-                margin-top: 0.83em;
-                margin-bottom: 0.83em;
-                margin-left: 0;
-                margin-right: 0;
-                font-weight: bold;              
-            }
-        </style>
+    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+	  <link rel="stylesheet" href="{% static 'assets/css/leadmark.css' %}">
         <br>
         <li><a href="{% url 'Events:event-list'%}" >Events</a></li><br>
         <li><a href="{% url 'Events:create-event'%}">Add Event</a></li><br>
@@ -46,24 +18,14 @@
       </ul>
     </div>
   </nav>
-  <div class="img"></div>
   <div class="center">
-    <div class="btns">
-      <button onclick="">Learn More</button>
-      <style>
-        .center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 150px;
-            background-color: darkslategray;
-            color: bisque;
-            text-align: center;
-        }
-      </style>
-    </div>
+    <center><button class="inline-flex items-center bg-black-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+      <a href="#"> Learn More </a>               
+      </button>
+    </center>
+  <img src="{% static 'assets/imgs/section.jpg'%}" alt="" class="w-100 mt-3 shadow-sm">
   </div>
-    </header>
+ </header>
 {% endblock content %}
 
 

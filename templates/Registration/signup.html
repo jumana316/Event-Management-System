@@ -1,25 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <center><b><h1 style="background-color: rgb(185, 145, 95);">SignUp</h1></b>
-    <link href="{% static 'css/login.css' %}" rel="stylesheet" />  
-
-        <style>
-            body{
-                background-color: whitesmoke;
-            }
-            h1{
-                font-size: larger;
-                font-family: Georgia, 'Times New Roman', Times, serif;
-                background-repeat: no-repeat;
-                background: fixed;
-                color: black;
-                
-            }
-            h6{
-                color: rgb(0, 0, 0);
-            }
-        </style>
+    <center><b><h1>SignUp</h1></b>  
     <form method="post" action=".">
          {% csrf_token %}
         <div class="form-group">
