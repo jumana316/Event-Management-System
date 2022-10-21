@@ -1,8 +1,25 @@
-{% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <center><b><h1>SignUp</h1></b>  
-    <form method="post" action=".">
+    <center><b><h1>SignUp</h1></b></center>
+    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/leadmark.css' %}">
+    <style>
+    body, html {
+        height: 100%;
+        margin: 0;
+      /* The image used */
+      background-image: url(https://t3.ftcdn.net/jpg/04/39/23/02/240_F_439230222_GnPEkPPljuP19oYZxCjz29tnfDqjdVzj.jpg);
+
+      /* Full height */
+      height: 100%; 
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }                
+    </style>
+    <center><form method="post" action=".">
          {% csrf_token %}
         <div class="form-group">
             <b>Name:<br></b>
