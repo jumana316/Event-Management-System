@@ -1,60 +1,116 @@
-{% load static %}
-{% block content %}
-<u><h1 class="bg-primary">Manage Event</h1></u><br>
-<link href="{% static 'css/style.css' %}" rel="stylesheet" /> 
-<script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js'"></script>
-<script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js'"></script>
-<link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
-<link rel="stylesheet" href="{% static 'assets/css/update.css' %}">
-    <form method="post" action=".">
-        {% csrf_token %}
-          <div class="form-group">
-           <b>Name :<br></b>
-            <input type="text" name="name" autocomplete="off" value="{{ Event.name }}" required><br>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Event Updation</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + LeadMark main styles -->
+	<link rel="stylesheet" href="{% static 'assets/css/leadmark.css' %}">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- page Navigation -->
+    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'assets/imgs/logo.svg' %}" alt="">
+            </a>
+            <header style="color: white; font-size:larger;">Event Management System</header>
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">                     
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home'%}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about'%}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact'%}">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-          <div class = "form-group" > 
-          <b>Time :<br></b>
-            <input type="time" name="time" min="6:00" max="18:00" class="form-control"  style="max-width: 300px;" placeholder="Time" required="" id="id_time">
-          </div>
-          <br>
+    </nav>
+    <!-- End Of Second Navigation -->
 
-          <div class = "form-group">
-          <b>Date :<br></b>
-            <input type="date" name="date" class="form-control" style="max-width: 300px;" placeholder="Time" required="" id="id_date">
-          </div>
-          <br>
+    <!-- Page Header -->
+    <header class="header">
+        <div class="overlay">
+            <form method="post" action=".">
+  {% csrf_token %}
+    <div class="form-group">
+     <b>Name :<br></b>
+      <input type="text" name="name" autocomplete="off" value="{{ Event.name }}" required><br>
+  </div>
+    <div class = "form-group" > 
+    <b>Time :<br></b>
+      <input type="time" name="time" min="6:00" max="18:00" class="form-control"  style="max-width: 300px;" placeholder="Time" required="" id="id_time">
+    </div>
+    <br>
 
-          <div class = "form-group">
-          <b>Duration :<br></b>
-            {{ form.duration }}
-          </div>
-          <br>
+    <div class = "form-group">
+    <b>Date :<br></b>
+      <input type="date" name="date" class="form-control" style="max-width: 300px;" placeholder="Time" required="" id="id_date">
+    </div>
+    <br>
 
-          <div class = "form-group">
-          <b>Description :<br></b>
-            <textarea id="description" name="description" value="{{ Event.description }}"  placeholder="Description"  rows="4" cols="50"></textarea>
-          </div>
-          <br>
+    <div class = "form-group">
+    <b>Duration :<br></b>
+      {{ form.duration }}
+    </div>
+    <br>
 
-          <div class = "form-group">
-          <b>Coordinator :<br></b>
-            <input type="text" name="coordinator" autocomplete="off" value="{{ Event.coordinator }}" required><br>
-          </div>
-          <br>
-          
-          <div class = "form-group">
-          <b>Max_Participants :<br></b>
-            {{ form.max_participants }}
-          </div>
+    <div class = "form-group">
+    <b>Description :<br></b>
+      <textarea id="description" name="description" value="{{ Event.description }}"  placeholder="Description"  rows="4" cols="50"></textarea>
+    </div>
+    <br>
 
-          <div class="form-group"><br>
-           <button type="submit" class="btn btn-primary">Reset</button>
-           <button type="submit" class="btn btn-primary">Submit</button>
-           <button type="submit" class="btn btn-primary">Delete</button> 
-           <button onclick="history.back()">Back</button>
-          </div>
-    </form>
-{% endblock content %}
+    <div class = "form-group">
+    <b>Coordinator :<br></b>
+      <input type="text" name="coordinator" autocomplete="off" value="{{ Event.coordinator }}" required><br>
+    </div>
+    <br>
+    
+    <div class = "form-group">
+    <b>Max_Participants :<br></b>
+      {{ form.max_participants }}
+    </div>
+
+    <div class="form-group"><br>
+     <button type="submit" class="btn btn-primary">Reset</button>
+     <button type="submit" class="btn btn-primary">Submit</button>
+     <button type="submit" class="btn btn-primary">Delete</button> 
+     <button onclick="history.back()">Back</button>
+    </div>
+</form>
+    </header>
+    <!-- End Of Page Header -->
+	
+	<!-- core  -->
+    <script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js'"></script>
+    <script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js'"></script>
+
+    <!-- bootstrap 3 affix -->
+	<script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js'"></script>
+
+    <!-- Isotope -->
+    <script src="{% static 'assets/vendors/isotope/isotope.pkgd.js'"></script>
+
+    <!-- LeadMark js -->
+    <script src="{% static 'assets/js/leadmark.js'"></script>
+
+</body>
+</html>
 
 
 

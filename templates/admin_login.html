@@ -6,38 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN</title>
-    <link rel="stylesheet" href="{% static 'assets/css/leadmark.css' %}">
 </head>
 <body>
+
+</body>
+</html>
+
+
 <div class="container-fluid header text-center">
-   Event Management | Administration
+  <center>Event Management | Administration
 </div>
 <div class="container-fluid">
   <div class="row justify-content-center">
-    <div class="col-lg-6 loginBox">
-      <b>Login</b><br>
-      <span style="font-size:18px;">{{ status }}</span>
+    <div class="col-lg-6 loginBox"></center>  
+    <center><b>Login</b><br></center>
+  <center><span style="font-size:18px;">{{ status }}</span></center>
 
-      <div class="row justify-content-center">
+    <center><div class="row justify-content-center">
         <div class="col-lg-6">
           <div class="inputBox" style="font-size:18px;">
-            <form action="" method="post">
+           <form action="" method="post">
               {% csrf_token %}
               Name :<br>
-              <input type="text" name="name" autocomplete="off" required>
+              <input type="text" name="name" autocomplete="off" style="margin:0 25% 0 25%;" required>
 
               <br>Email :<br>
-              <input type="email" name="email" minlength="8" autocomplete="off" required>
+              <input type="email" name="email" minlength="8" autocomplete="off" style="margin:0 25% 0 25%;" required>
 
               <br>Password :<br>
-              <input type="password" name="password" minlength="8" autocomplete="off" required>
+              <input type="password" name="password" minlength="8" autocomplete="off" style="margin:0 25% 0 25%;" required>
               <input type="submit" value="Login" name="login" style="margin:0 25% 0 25%;">
-            </form>
+            </form></center>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-</body>
-</html>

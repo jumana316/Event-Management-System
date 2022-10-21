@@ -1,59 +1,102 @@
-{% load static %}
-{% block content %}
-    <center><b><h1>SignUp</h1></b></center>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <title>SignUp Page</title>
+    <!-- font icons -->
     <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/leadmark.css' %}">
-    <style>
-    body, html {
-        height: 100%;
-        margin: 0;
-      /* The image used */
-      background-image: url(https://t3.ftcdn.net/jpg/04/39/23/02/240_F_439230222_GnPEkPPljuP19oYZxCjz29tnfDqjdVzj.jpg);
+    <!-- Bootstrap + LeadMark main styles -->
+	<link rel="stylesheet" href="{% static 'assets/css/leadmark.css' %}">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
-      /* Full height */
-      height: 100%; 
-
-      /* Center and scale the image nicely */
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }                
-    </style>
-    <center><form method="post" action=".">
-         {% csrf_token %}
-        <div class="form-group">
-            <b>Name:<br></b>
-            {{ form.name }}
+    <!-- page Navigation -->
+    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'assets/imgs/logo.svg' %}" alt="">
+            </a>
+            <header style="color: white; font-size:larger;">Event Management System</header>
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">                     
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home'%}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about'%}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact'%}">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
+    <!-- End Of Second Navigation -->
 
-        <div class="form-group">
-        <b>Mail Id:<br></b>
-            {{ form.email }}
-        </div>
+    <!-- Page Header -->
+    <header class="header">
+        <div class="overlay">
+            <b><h1>SignUp</h1></b>
+            <form method="post" action=".">
+                 {% csrf_token %}
+                <div class="form-group">
+                    <b>Name:<br></b>
+                    {{ form.name }}
+                </div>
+            
+                <div class="form-group">
+                <b>Mail Id:<br></b>
+                    {{ form.email }}
+                </div>
+            
+                <div class="form-group">
+                <b><label for="gender">Gender:<br></label></b>
+                    <select name="gender" id="gender">
+                      <option value="none">None</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                </div>
+            
+                <div class="form-group">
+                <b>Password:<br></b>
+                    {{ form.password }}
+                </div>
+            
+                <div class="form-group">
+                <a href="{% url 'login'%}"> SignUp</a>
+            
+                 <br><p>Already Have an Account?<br>
+                    Click Here </p>  
+            <a href="{% url 'login'%}"> Login</a>         
+    </header>
+    <!-- End Of Page Header -->
+	
+	<!-- core  -->
+    <script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js'"></script>
+    <script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js'"></script>
 
-        <div class="form-group">
-        <b><label for="gender">Gender:<br></label></b>
-            <select name="gender" id="gender">
-              <option value="none">None</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-        </div>
+    <!-- bootstrap 3 affix -->
+	<script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js'"></script>
 
-        <div class="form-group">
-        <b>Password:<br></b>
-            {{ form.password }}
-        </div>
+    <!-- Isotope -->
+    <script src="{% static 'assets/vendors/isotope/isotope.pkgd.js'"></script>
 
-        <div class="form-group">
-        <a href="{% url 'login'%}"> SignUp</a>
+    <!-- LeadMark js -->
+    <script src="{% static 'assets/js/leadmark.js'"></script>
 
-         <br><p>Already Have an Account?<br>
-            Click Here </p>  
-    <a href="{% url 'login'%}"> Login</a>
-    </center>
+</body>
+</html>
 
-{% endblock content %}
 
 
