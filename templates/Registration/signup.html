@@ -61,12 +61,15 @@
                 </div>
             
                 <div class="form-group">
-                    <p style="color: white; font-size:large;">By creating an account you agree to our <a href="#" style="color:dodgerblue;">
-                        Terms & Privacy</a>.
+                    <p style="color: white; font-size:large;">By creating an account you agree to our <a href="#" style="color:rgb(11, 133, 255); background-color: azure;">
+                        Terms & Privacy Policy </a>.
                     </p>
                     <div class="clearfix">
                         <button type="button" class="cancelbtn"
-                            onclick="history.back()">Cancel
+                            onclick="history.back()" 
+                            style="background-color: rgba(245, 129, 76, 0.911); 
+                            color:azure; border-radius:15px;">
+                            Cancel
                         </button>
                         <a href="{% url 'login'%}">
                             <button class="btn btn-primary btn-lg">SignUp</button>  

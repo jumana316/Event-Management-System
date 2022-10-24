@@ -46,7 +46,6 @@ def signup(request):
     }
     return render(request, 'Registration/signup.html', context)
 
-
 def event_list(request):
     Events = Event.objects.all()
     context ={

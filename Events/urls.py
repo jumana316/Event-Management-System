@@ -9,5 +9,5 @@ urlpatterns = [
     path('ticket/',book_ticket, name='book-ticket' ),
     path('<int:pk>/update_event/', update_event, name='update-event'),
     path('<int:pk>/event_detail/',event_detail, name='event-detail'),
-    path('<int:pk>/delete/', event_delete, name='event-delete'),
+    path('<int:pk>/delete/', event_delete, name='event-delete')
 ]
