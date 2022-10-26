@@ -7,67 +7,83 @@
     <meta name="description" content="Start your development with LeadMark landing page.">
     <meta name="author" content="Devcrud">
     <title>Events</title>
-    <!-- font icons -->
-    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
-    <!-- Bootstrap + LeadMark main styles -->
-	<link rel="stylesheet" href="{% static 'assets/css/leadmark.css' %}">
-</head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800,900&display=swap"
+    rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
 
-    <!-- page Navigation -->
-    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
+
+   <!-- Css Styles -->
+   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+   <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+   <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+   <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+   <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+   <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+   <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+    <style>
+        body{
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url({% static 'img/event/pic 9.jpg' %});
+        }
+    </style>
+
+  <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{% static 'assets/imgs/logo.svg' %}" alt="">
-            </a>
-            <header style="color: white; font-size: larger;">Event Management System
-            </header>
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav ml-auto">                     
-                      <li class="nav-item">
-                          <a class="nav-link" href="{% url 'home'%}">Home</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{% url 'about'%}">About Us</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{% url 'contact'%}">Contact</a>
-                      </li>
-                  </ul>
-              </div>  
+            <div class="logo">
+                <a href="#">
+                    <img src="{% static 'img/logo 3.jpg' %}" alt="" style="height: 100px; max-height: 150px; width:8cm;">
+                </a>
+            </div>
+            <div class="nav-menu">
+                <nav class="mainmenu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}  ">About</a></li>
+                        <li><a href="#">Schedule</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="{% url 'contact' %}">Contacts</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="primary-btn top-btn"><i class="fa fa-ticket"></i> Ticket</a>
+            </div>
+            <div id="mobile-menu-wrap"></div>
         </div>
-    </nav>
+    </header>
     <!-- End Of Second Navigation -->
 
     <!-- Page Header -->
     <header class="header">
         <div class="overlay">
-            <h1 class="head">Event List</h1>
+           <center><h1 class="head">Event List</h1>
             {% for Event in Events %}
             <div class="Event">
               <a href="/Events/{{ Event.pk }}/event_detail">{{ Event.name }}</a>
             </div>
             {% endfor %}
-            <br><button onclick="history.back()">Back</button>
-        </div>  
+            <a href="javascript: history.back()" type="button" class="btn btn-info" style="background-color: white; color: #000;">Go back</a>
+			<div id="wrap"></div>
+        </div></center>  
     </header>
     <!-- End Of Page Header -->
 	
-	<!-- core  -->
-    <script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js'"></script>
-    <script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js'"></script>
-
-    <!-- bootstrap 3 affix -->
-	<script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js'"></script>
-
-    <!-- Isotope -->
-    <script src="{% static 'assets/vendors/isotope/isotope.pkgd.js'"></script>
-
-    <!-- LeadMark js -->
-    <script src="{% static 'assets/js/leadmark.js'"></script>
+    <!-- Js Plugins -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 
 </body>
 </html>
