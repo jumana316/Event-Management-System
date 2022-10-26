@@ -43,8 +43,8 @@
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
-                        <li class="active"><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="{% url 'about' %}  ">About</a></li>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
                         <li><a href="#">Speakers</a>
                             <ul class="dropdown">
                                 <li><a href="#">Jayden</a></li>
@@ -70,11 +70,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
-                    <center><div class="hero-text">
-                        <a href="{% url 'Events:book-ticket' %}" class="primary-btn">Buy Ticket</a> 
+                    <div class="hero-text">
+                        <a href="{% url 'Events:book-ticket' %}" class="primary-btn">Buy Ticket</a>
                         <a href="{% url 'Events:event-list'%}" class="primary-btn">Events</a> 
                         <a href="{% url 'Events:create-event'%}" class="primary-btn">Add Event</a>
-                    </div></center>
+                    </div>
                 </div>
             </div>
         </div>
