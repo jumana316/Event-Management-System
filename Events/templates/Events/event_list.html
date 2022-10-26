@@ -67,7 +67,7 @@
            <center><h1 class="head">Event List</h1>
             {% for Event in Events %}
             <div class="Event">
-              <a href="/Events/{{ Event.pk }}/event_detail">{{ Event.name }}</a>
+              <a href="/Events/{{ Event.pk }}/event_detail/">{{ Event.name }}</a>
             </div>
             {% endfor %}
             <a href="javascript: history.back()" type="button" class="btn btn-info" style="background-color: white; color: #000;">Go back</a>
@@ -88,18 +88,4 @@
 </body>
 </html>
 
-
-<!-- {% load static %}
-{% block content %}
-    <title>Events</title>
-    <u><h3>Event List</h3></u>
-    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
-	  <link rel="stylesheet" href="{% static 'assets/css/leadmark.css' %}">
-    {% for Event in Events %}
-    <div class="Event">
-      <a href="/Events/{{ Event.pk }}/event_detail">{{ Event.name }}</a>
-    </div>
-    {% endfor %}
-    <br><button onclick="history.back()">Back</button>
-{% endblock content %} -->
 
