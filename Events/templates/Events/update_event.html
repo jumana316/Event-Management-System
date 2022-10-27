@@ -8,108 +8,120 @@
     <meta name="description" content="Start your development with LeadMark landing page.">
     <meta name="author" content="Devcrud">
     <title>Event Updation</title>
-    <!-- font icons -->
-    <link rel="stylesheet" href="{% static 'assets/vendors/themify-icons/css/themify-icons.css' %}">
-    <!-- Bootstrap + LeadMark main styles -->
-	<link rel="stylesheet" href="{% static 'assets/css/leadmark.css' %}">
-</head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+          <!-- Google Font -->
+      <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800,900&display=swap"
+      rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+  
+  
+     <!-- Css Styles -->
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+  </head>
+  <body>
+      <style>
+          body{
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-image: url({% static 'img/event/pic 9.jpg' %});
+          }
+      </style>
+  
+    <!-- Page Preloder -->
+      <div id="preloder">
+          <div class="loader"></div>
+      </div>
+  
+      <!-- Header Section Begin -->
+      <header class="header-section">
+          <div class="container">
+              <div class="logo">
+                  <a href="#">
+                      <img src="{% static 'img/logo 3.jpg' %}" alt="" style="height: 100px; max-height: 150px; width:8cm;">
+                  </a>
+              </div>
+              <div class="nav-menu">
+                  <nav class="mainmenu mobile-menu">
+                      <ul>
+                          <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                          <li><a href="{% url 'about' %}  ">About</a></li>
+                          <li><a href="#">Schedule</a></li>
+                          <li><a href="#">Blog</a></li>
+                          <li><a href="{% url 'contact' %}">Contacts</a></li>
+                      </ul>
+                  </nav>
+                  <a href="#" class="primary-btn top-btn"><i class="fa fa-ticket"></i> Ticket</a>
+              </div>
+              <div id="mobile-menu-wrap"></div>
+          </div>
+      </header>
+      <!-- End of Header Section Begin -->
 
-    <!-- page Navigation -->
-    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{% static 'assets/imgs/logo.svg' %}" alt="">
-            </a>
-            <header style="color: white; font-size:larger;">Event Management System</header>
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">                     
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home'%}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about'%}">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact'%}">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- End Of Second Navigation -->
+  <!-- Page Header -->
+  <header class="header">
+      <div class="overlay">
+          <form method="post" action="." style="font-size:small;">
+          <center><b><u><h1 class="head">Manage Events</h1></u></b>
+            {% csrf_token %}
+              <br><div class="form-group">
+               <b>Name :<br></b>
+               <input type="text" name="name" autocomplete="off" value="{{ Event.name }}" required>
+              </div>
 
-    <!-- Page Header -->
-    <header class="header">
-        <div class="overlay">
-            <form method="post" action=".">
-            <b><u><h1 class="head" style="text-align: center; padding-top:7em;">Manage Events</h1></u></b>
-
-  {% csrf_token %}
-    <div class="form-group" style="padding-bottom: 3em;">
-     <b>Name :<br></b>
-      <input type="text" name="name" autocomplete="off" value="{{ Event.name }}" required><br>
-  </div>
-    <div class = "form-group"> 
-    <b>Time :<br></b>
-      <input type="time" name="time" min="6:00" max="18:00" class="form-control"  style="max-width: 300px;" placeholder="Time" required="" id="id_time">
-    </div>
-    <br>
-
-    <div class = "form-group">
-    <b>Date :<br></b>
-      <input type="date" name="date" class="form-control" style="max-width: 300px;" placeholder="Time" required="" id="id_date">
-    </div>
-    <br>
-
-    <div class = "form-group">
-    <b>Duration :<br></b>
-      {{ form.duration }}
-    </div>
-    <br>
-
-    <div class = "form-group">
-    <b>Description :<br></b>
-      <textarea id="description" name="description" value="{{ Event.description }}"  placeholder="Description"  rows="4" cols="50"></textarea>
-    </div>
-    <br>
-
-    <div class = "form-group">
-    <b>Coordinator :<br></b>
-      <input type="text" name="coordinator" autocomplete="off" value="{{ Event.coordinator }}" required><br>
-    </div>
-    <br>
+              <div class = "form-group"> 
+               <b>Time :<br></b>
+               <input type="time" name="time" min="6:00" max="18:00" class="form-control"  style="max-width: 300px;" placeholder="Time" required="" id="id_time">
+              </div>
+             
+              <div class = "form-group">
+                <b>Date :<br></b>
+                <input type="date" name="date" class="form-control" style="max-width: 300px;" placeholder="Time" required="" id="id_date">
+              </div>
+              
+              <div class = "form-group">
+                <b>Duration :<br></b>
+                {{ form.duration }}
+              </div>
+              
+              <div class = "form-group">
+                <b>Description :<br></b>
+                <textarea id="description" name="description" value="{{ Event.description }}"  placeholder="Description"  rows="4" cols="50"></textarea>
+              </div>
+              
+              <div class = "form-group">
+                <b>Coordinator :<br></b>
+                <input type="text" name="coordinator" autocomplete="off" value="{{ Event.coordinator }}" required><br>
+              </div>
     
-    <div class = "form-group">
-    <b>Max_Participants :<br></b>
-      {{ form.max_participants }}
-    </div>
+              <div class = "form-group">
+                <b>Max_Participants :<br></b>
+                {{ form.max_participants }}
+              </div>
 
-    <div class="form-group"><br>
-     <button type="submit" class="btn btn-primary">Reset</button>
-     <button type="submit" class="btn btn-primary">Submit</button>
-     <button type="submit" class="btn btn-primary">Delete</button> 
-     <button onclick="history.back()">Back</button>
-    </div>
-</form>
-    </header>
+              <div class="form-group">
+               <button type="submit" class="btn btn-primary">Reset</button>
+               <button type="submit" class="btn btn-primary">Submit</button>
+               <button type="submit" class="btn btn-primary">Delete</button> 
+               <button onclick="history.back()">Back</button>
+              </div></center>
+          </form>
+  </header> 
     <!-- End Of Page Header -->
 	
-	<!-- core  -->
-    <script src="{% static 'assets/vendors/jquery/jquery-3.4.1.js'"></script>
-    <script src="{% static 'assets/vendors/bootstrap/bootstrap.bundle.js'"></script>
-
-    <!-- bootstrap 3 affix -->
-	<script src="{% static 'assets/vendors/bootstrap/bootstrap.affix.js'"></script>
-
-    <!-- Isotope -->
-    <script src="{% static 'assets/vendors/isotope/isotope.pkgd.js'"></script>
-
-    <!-- LeadMark js -->
-    <script src="{% static 'assets/js/leadmark.js'"></script>
+	  <!-- Js Plugins -->
+      <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+      <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+      <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+      <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'js/main.js' %}"></script>
+  
 
 </body>
 </html>

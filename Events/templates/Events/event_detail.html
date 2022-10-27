@@ -65,7 +65,7 @@
     <!-- Page Header -->
     <header class="header">
         <div class="overlay">
-            <title>Events</title>
+           <center><title>Events</title>
             <u><h2>Details of {{ Event.name }}</h2></u>
             <b><h4><p style="font-size: medium;">Event time: {{ Event.time}}</p></h4></b>
             <b><h4><p style="font-size: medium;">Event date: {{ Event.date}}</p></h4></b>
@@ -73,9 +73,9 @@
             <b><h4><p style="font-size: medium;">Event description: {{ Event.description}}</p></h4></b>
             <b><h4><p style="font-size: medium;">Event coordinator: {{ Event.coordinator}}</p></h4></b>
             <b><h4><p style="font-size: medium;">Event max_participants: {{ Event.max_participants}}</p></h4><br></b>
-        <a href="/Events/{{ Event.pk }}/update_event/">Update {{ Event.name }}</a><br>
-        <a href="/Events/{{ Event.pk }}/delete/">Delete {{ Event.name }}</a1>
-            <br><button onclick="history.back()">Back</button>
+        <a href="/Events/{{ Event.pk }}/update_event/" class="btn-primary">Update {{ Event.name }}</a><br>
+        <a href="/Events/{{ Event.pk }}/delete/"  class="btn-primary">Delete {{ Event.name }}</a1>
+            <br><button onclick="history.back()" class="primary-btn">Back</button></center>
         </div>   
     </header>
     <!-- End Of Page Header -->
