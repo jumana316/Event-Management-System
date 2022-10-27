@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path  
 from Events.views import(
-    about_page, contact_page, home_page, landing_page, login, signup ,admin_login, admin_booking, admin_home
+    about_page, contact_page, home_page, landing_page, login, signup ,admin_login, admin_booking
     ) 
 
 
@@ -35,7 +35,6 @@ urlpatterns = [
     path('about/', about_page, name='about'),
     path('contact/', contact_page, name='contact'),
     path('admin_login/',admin_login,name='admin-login'),
-    path('admin_home/', admin_home, name='admin-home'),
     path('admin_booking/',admin_booking,name='admin-booking')
 ]
 

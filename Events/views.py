@@ -143,19 +143,21 @@ def admin_login(request):
 #Admin View Bookings
 
 def admin_booking(request):
-    if request.session =="POST":
-        booking = Book_Ticket.objects.all()
-        data = {'booking':booking}
-        return render(request,'admin_booking.html',context=data)
-       
-    else:
-        data = {'status':'You need to login first'}
-        return render(request,'admin_login.html',context=data)
+    if request.method =="POST":
+        form = AdminCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context ={}
+    return render(request,'admin_booking.html', context)
     
 
-def admin_home(request):
-    return render(request,'admin_home.html')
-
-
-
+# def admin_booking(request):
+#     if request.session =="POST":
+#         booking = Book_Ticket.objects.all()
+#         data = {'booking':booking}
+#         return render(request,'admin_booking.html',context=data)
+       
+#     else:
+#         data = {'status':'You need to login first'}
+#         return render(request,'admin_login.html',context=data)
 
